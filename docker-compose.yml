@@ -1,25 +1,21 @@
-version: '3.9'
 services:
   whatsapp_go:
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200k"
-        max-file: "10"
     image: "aldinokemal2104/go-whatsapp-web-multidevice:latest"
-    build:
-      context: .
-      dockerfile: ./docker/golang.Dockerfile
     restart: 'always'
     ports:
       - "3000:3000"
+    environment:
+      OS: ${WHATSAPP_OS:-MyApplication}
+      BASIC_AUTH: ${WHATSAPP_AUTH} #"kemal:secret,toni:password,userName:secretPassword"
+      WEBHOOK: ${WHATSAPP_WEBHOOK}
+      WEBHOOK_SECRET: ${WHATSAPP_WEBHOOK_SECRET}
     volumes:
       - whatsapp_data:/app/storages
     command: >
-      --os="MyApplication"
-      --basic-auth="kemal:secret,toni:password,userName:secretPassword"
-      --port=3000
-      --debug=true
-      --autoreply="Don't reply this message"
-      --webhook="http://yourwebhook.site/handler"
-      --webhook-secret="secret"
+      --os="${OS}"
+      --basic-auth="${BASIC_AUTH}"
+      --port="${PORT}"
+      --debug="${DEBUG}"
+      --autoreply="${AUTOREPLY}"
+      --webhook="${WEBHOOK}"
+      --webhook-secret="${WEBHOOK_SECRET}"

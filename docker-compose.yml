@@ -13,9 +13,13 @@ services:
     restart: 'always'
     ports:
       - "3000:3000"
-    environment:
-      - OS=${APP_NAME}
-      - BASIC_AUTH=${BASIC_AUTH} # kemal:secret,toni:password
-      - WEBHOOK_SECRET=${SERVICE_PASSWORD_WEBHOOK}
     volumes:
       - whatsapp_data:/app/storages
+    command: >
+      --os="MyApplication"
+      --basic-auth="kemal:secret,toni:password,userName:secretPassword"
+      --port=3000
+      --debug=true
+      --autoreply="Don't reply this message"
+      --webhook="http://yourwebhook.site/handler"
+      --webhook-secret="secret"

@@ -11,8 +11,9 @@ services:
       context: .
       dockerfile: ./docker/golang.Dockerfile
     restart: 'always'
+    ports:
+      - "3000:3000"
     environment:
-      - SERVICE_FQDN_WHATSAPP_3000
       - OS=${APP_NAME}
       - BASIC_AUTH=${BASIC_AUTH} # kemal:secret,toni:password
       - WEBHOOK_SECRET=${SERVICE_PASSWORD_WEBHOOK}

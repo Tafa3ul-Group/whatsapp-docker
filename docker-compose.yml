@@ -6,13 +6,13 @@ services:
       - "3000:3000"
     environment:
       OS: ${WHATSAPP_OS:-MyApplication}
-      BASIC_AUTH: ${WHATSAPP_AUTH} #"kemal:secret,toni:password,userName:secretPassword"
+      BASIC_AUTH: ${WHATSAPP_AUTH}
       WEBHOOK: ${WHATSAPP_WEBHOOK}
       WEBHOOK_SECRET: ${WHATSAPP_WEBHOOK_SECRET}
     volumes:
       - whatsapp_data:/app/storages
     command: >
-      --os="${OS}"
-      --basic-auth="${BASIC_AUTH}"
-      --webhook="${WEBHOOK}"
-      --webhook-secret="${WEBHOOK_SECRET}"
+      --os="${WHATSAPP_OS}"
+      --basic-auth="${WHATSAPP_AUTH}"
+      --webhook="${WHATSAPP_WEBHOOK}"
+      --webhook-secret="${WHATSAPP_WEBHOOK_SECRET}"

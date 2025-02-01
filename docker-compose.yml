@@ -2,8 +2,8 @@ services:
   whatsapp_go:
     image: "aldinokemal2104/go-whatsapp-web-multidevice:latest"
     restart: 'always'
-    ports:
-      - "3000:3000"
+    # ports:
+    #   - "3000:3000"
     environment:
       OS: ${WHATSAPP_OS:-MyApplication}
       BASIC_AUTH: ${WHATSAPP_AUTH}

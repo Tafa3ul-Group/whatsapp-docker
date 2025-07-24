@@ -5,12 +5,10 @@ services:
     # ports:
     #   - "3000:3000"
     environment:
-      OS: ${WHATSAPP_OS:-MyApplication}
-      BASIC_AUTH: ${WHATSAPP_AUTH}
       APP_PORT: 3000
       APP_DEBUG: false
-      APP_OS: Chrome
-      APP_BASIC_AUTH: user1:pass1,user2:pass2
+      APP_OS: ${WHATSAPP_OS:-Chrome}
+      APP_BASIC_AUTH: ${WHATSAPP_AUTH}
 
       # Database Settings
       DB_URI: "file:storages/whatsapp.db?_foreign_keys=on"
@@ -25,8 +23,3 @@ services:
       WHATSAPP_CHAT_STORAGE: true
     volumes:
       - whatsapp_data:/app/storages
-    # command: >
-    #   --os="${WHATSAPP_OS}"
-    #   --basic-auth="${WHATSAPP_AUTH}"
-    #   --webhook="${WHATSAPP_WEBHOOK}"
-    #   --webhook-secret="${WHATSAPP_WEBHOOK_SECRET}"

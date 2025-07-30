@@ -1,6 +1,7 @@
 services:
   whatsapp_go:
-    image: "aldinokemal2104/go-whatsapp-web-multidevice:v7.3.0"
+    # image: "aldinokemal2104/go-whatsapp-web-multidevice:v7.3.0" v7.3.1
+    image: "aldinokemal2104/go-whatsapp-web-multidevice:v7.3.1"
     restart: 'always'
     # ports:
     #   - "3000:3000"

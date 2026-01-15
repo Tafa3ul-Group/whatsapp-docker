@@ -12,4 +12,4 @@ services:
     volumes:
       - whatsapp_data:/app/storages
     command: >
-      --os="${WHATSAPP_OS}" --basic-auth="${WHATSAPP_AUTH}" --webhook="${WHATSAPP_WEBHOOK}" --webhook-secret="${WHATSAPP_WEBHOOK_SECRET}"
+      rest --os="${WHATSAPP_OS}" --basic-auth="${WHATSAPP_AUTH}" --webhook="${WHATSAPP_WEBHOOK}" --webhook-secret="${WHATSAPP_WEBHOOK_SECRET}"

@@ -93,7 +93,10 @@ func initEnvConfig() {
 	if envOs := viper.GetString("app_os"); envOs != "" {
 		config.AppOs = envOs
 	}
-	if envBasicAuth := viper.GetString("app_basic_auth"); envBasicAuth != "" {
+	if envWhatsappAuth := viper.GetString("whatsapp_auth"); envWhatsappAuth != "" {
+		credential := strings.Split(envWhatsappAuth, ",")
+		config.AppBasicAuthCredential = credential
+	} else if envBasicAuth := viper.GetString("app_basic_auth"); envBasicAuth != "" {
 		credential := strings.Split(envBasicAuth, ",")
 		config.AppBasicAuthCredential = credential
 	}

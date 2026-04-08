@@ -195,7 +195,7 @@ To use environment variables:
 | `APP_HOST`                              | Host address to bind the server                               | `0.0.0.0`                                    | `APP_HOST=127.0.0.1`                          |
 | `APP_DEBUG`                             | Enable debug logging                                          | `false`                                      | `APP_DEBUG=true`                              |
 | `APP_OS`                                | OS name (device name in WhatsApp)                             | `Chrome`                                     | `APP_OS=MyApp`                                |
-| `APP_BASIC_AUTH`                        | Basic authentication credentials                              | -                                            | `APP_BASIC_AUTH=user1:pass1,user2:pass2`      |
+| `WHATSAPP_AUTH`                         | Basic authentication credentials                              | -                                            | `WHATSAPP_AUTH=user1:pass1,user2:pass2`       |
 | `APP_BASE_PATH`                         | Base path for subpath deployment                              | -                                            | `APP_BASE_PATH=/gowa`                         |
 | `APP_TRUSTED_PROXIES`                   | Trusted proxy IP ranges for reverse proxy                     | -                                            | `APP_TRUSTED_PROXIES=0.0.0.0/0`               |
 | `DB_URI`                                | Database connection URI                                       | `file:storages/whatsapp.db?_foreign_keys=on` | `DB_URI=postgres://user:pass@host/db`         |
@@ -449,7 +449,7 @@ services:
     volumes:
       - whatsapp:/app/storages
     environment:
-      - APP_BASIC_AUTH=admin:admin
+      - WHATSAPP_AUTH=admin:admin
       - APP_PORT=3000
       - APP_DEBUG=true
       - APP_OS=Chrome
@@ -472,7 +472,7 @@ services:
     volumes:
       - whatsapp:/app/storages
     environment:
-      - APP_BASIC_AUTH=admin:admin
+      - WHATSAPP_AUTH=admin:admin
       - APP_PORT=3000
       - APP_DEBUG=true
       - APP_OS=Chrome
